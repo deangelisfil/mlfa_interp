@@ -1,0 +1,13 @@
+This is a list of changes I had to make to spinterp version 5.1.1
+that can be downloaded here: https://www.researchgate.net/publication/330956911_Sparse_Grid_Interpolation_Toolbox_v511
+
+1) private/spgridm.m
+
+		c = repmat(shiftdim(c, 1-double(i)), repvec');
+
+		replaces 
+
+		c = repmat(shiftdim(c, 1-double(i)), repvec);
+
+		because repmat requires a row vector as an input of the second variable, not a column vector. 
+		This change copies the corresponding code in spinterp version 2.1.
