@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from data_generation.numerical_method.finite_difference.payoff import Payoff
 from data_generation.model_parameter import Model_parameter
 import numpy as np
-import torch
 import copy
 
 

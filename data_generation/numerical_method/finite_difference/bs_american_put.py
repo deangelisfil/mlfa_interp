@@ -2,14 +2,10 @@ import numpy as np
 from scipy.sparse import spdiags
 from scipy.sparse.linalg import splu
 from data_generation.numerical_method.numerical_method_abstract import Numerical_method
-from data_generation.model_parameter import Heston_parameter, Model_parameter
-from data_generation.numerical_method.finite_difference.payoff import Payoff
-from data_generation.numerical_method.finite_difference.grid import Grid_2dim
 from data_generation.numerical_method.finite_difference.grid import Rustic_grid_2dim, Grid_2dim
 import copy
 from data_generation.numerical_method.finite_difference.payoff import Put
 from data_generation.model_parameter import Bs_parameter
-import matplotlib.pyplot as plt
 from scipy.interpolate import CubicSpline
 
 

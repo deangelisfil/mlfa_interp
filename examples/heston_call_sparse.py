@@ -2,18 +2,18 @@ import sys
 from pathlib import Path
 path = Path.cwd().parent.parent.parent.absolute()
 sys.path.append(str(path))
-from examples.heston.initialize_heston import initialize_heston_call_sparse_interp
+from examples.initialize_heston import initialize_heston_call_sparse_interp
 import numpy as np
-from function_approximation.mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
-from function_approximation.mlfa_interp.interp import sparse_grid_interp, generate_fit_multilevel
-from function_approximation.mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg, mlfa_interp_plot_cvg
-from function_approximation.mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
-from function_approximation.mlfa_interp.mlfa_interp_test import mlfa_interp_test
-from function_approximation.mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
-from function_approximation.mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
+from mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
+from mlfa_interp.interp import sparse_grid_interp, generate_fit_multilevel
+from mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg, mlfa_interp_plot_cvg
+from mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
+from mlfa_interp.mlfa_interp_test import mlfa_interp_test
+from mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
+from mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
 from auxiliary_function.initialize_matlab_engine import initialize_matlab_engine
 from fractions import Fraction
-from function_approximation.mlfa_interp.mlfa_interp import mlfa_interp
+from mlfa_interp.mlfa_interp import mlfa_interp
 
 if __name__ == "__main__" :
 
@@ -40,7 +40,7 @@ if __name__ == "__main__" :
     dim = 6
     eng.workspace['dim'] = dim
     eng.workspace['M_L'] = M_L
-    eng.eval("mlfa_interp_generator = py.examples.heston.initialize_heston.initialize_heston_call_sparse_interp(M_L);",
+    eng.eval("mlfa_interp_generator = py.examples.initialize_heston.initialize_heston_call_sparse_interp(M_L);",
              nargout=0)
     eng.workspace['target'] = "delta_f"
     eng.eval("f = wrapper(mlfa_interp_generator, target);", nargout=0)

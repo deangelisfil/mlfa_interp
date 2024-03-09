@@ -1,4 +1,3 @@
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -15,7 +14,6 @@ def mlfa_interp_plot(filename, save=False) :
 
     Outputs:
         (1) Error as a function of accuracy
-        todo: (2) error decomposition in finite difference and itnerpolation error. See mlfa_plot_n for mlmc version.
 
     Inputs:
       filename: string, (base of) filename with output from mlfa_test_n routine

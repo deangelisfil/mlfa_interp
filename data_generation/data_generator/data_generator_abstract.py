@@ -3,7 +3,6 @@ import numpy as np
 from data_generation.model_parameter import Model_parameter
 import data_generation.model_parameter
 import data_generation.numerical_method.finite_difference.payoff
-import torch
 
 
 def cost(l: int, N: int, numerical_method_L: list):

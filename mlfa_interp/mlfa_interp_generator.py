@@ -1,8 +1,5 @@
 from data_generation.data_generator.data_generator_abstract import Data_generator_abstract, cost
 import numpy as np
-import torch
-import pickle
-import copy
 from abc import ABC, abstractmethod
 import matlab.engine
 
@@ -110,9 +107,6 @@ class Mlfa_tensor_interp_generator(Mlfa_interp_generator):
         return grid_train, y_train, err_train, x, y, err, cst
 
 class Mlfa_sparse_interp_generator(Mlfa_interp_generator):
-    """
-    todo
-    """
     def __init__(self,
                  numerical_method_L: list,
                  data_generator: Data_generator_abstract,

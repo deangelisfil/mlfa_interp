@@ -1,10 +1,8 @@
 import numpy as np
-from function_approximation.mlfa_interp.mlfa_interp import mlfa_interp
-from function_approximation.mlfa.mlfa_generator import Mlfa_generator
-from data_generation.data_generator.data_generator_abstract import Data_generator_abstract
-from function_approximation.mlfa.mlfa_test_cvg import write
-from function_approximation.mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator, Mlfa_tensor_interp_generator, Mlfa_sparse_interp_generator
+from mlfa_interp.mlfa_interp import mlfa_interp
+from mlfa_interp.mlfa_interp_test import write
+from mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg
+from mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator
 from examples.parameters import lambda_
 import matlab.engine
 from numpy import abs, log
@@ -24,7 +22,6 @@ def mlfa_interp_test_complexity(filename,
                                 eng: matlab.engine = None):
     """
     Multilevel Interpolation test routine. Prints results to stdout and file.
-    todo: write description
     """
 
     write(logfile, "\n")

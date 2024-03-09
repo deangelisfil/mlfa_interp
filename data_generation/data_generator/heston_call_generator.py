@@ -2,7 +2,6 @@ from data_generation.model_parameter import Bs_parameter
 from data_generation.numerical_method.finite_difference.payoff import Call
 from auxiliary_function.heston import heston_call
 import data_generation
-import torch
 from data_generation.data_generator.data_generator_abstract import Data_generator_abstract
 import numpy as np
 

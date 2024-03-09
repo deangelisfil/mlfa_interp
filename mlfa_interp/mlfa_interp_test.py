@@ -1,9 +1,9 @@
 import torch
 from datetime import datetime
-from function_approximation.mlfa.mlfa_test_cvg import write
-from function_approximation.mlfa_interp.mlfa_interp import mlfa_interp
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator
+from mlfa_interp.mlfa_interp import mlfa_interp
+from mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator
 import matlab.engine
+import sys
 
 def mlfa_interp_test(logfile,
                      x_test: torch.DoubleTensor,
@@ -55,3 +55,23 @@ def mlfa_interp_test(logfile,
             interp_err = fit_multilevel(x_test, y_test)
         mlfa_interp_generator.reset(eng=eng)
         write(logfile, " {:<12.3e} {:<12.3e} {:<12.3e}\n".format(eps, acc, interp_err))
+
+
+def write(logfile, msg):
+    """
+    Write to both sys.stdout and to a logfile.
+    """
+    logfile.write(msg)
+    sys.stdout.write(msg)
+
+def write_matrix(logfile, mat, Bn, L) :
+    """
+    mat has the shape (len(Bn), L+1)
+    """
+    write(logfile, "B/l         " + "         ".join(["%1d" % l for l in range(L + 1)]))
+    write(logfile, "\n")
+    write(logfile, "------------------------------------------------------\n")
+    for n, B in enumerate(Bn) :
+        write(logfile, "%5d       " % B + "  ".join(["%.2e" % row for row in mat[n]]))
+        write(logfile, "\n")
+

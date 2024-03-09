@@ -2,19 +2,15 @@ import sys
 from pathlib import Path
 path = Path.cwd().parent.parent.parent.absolute()
 sys.path.append(str(path))
-from function_approximation.mlfa_interp.mlfa_interp import mlfa_interp
-from examples.bs.initialize_bs import initialize_bs_call_interp
-from function_approximation.mlfa_interp.interp import tensor_grid_interp
-from scipy.interpolate import RegularGridInterpolator
+from examples.initialize_bs import initialize_bs_call_interp
 import numpy as np
-from auxiliary_function.error import maxe
-from function_approximation.mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
-from function_approximation.mlfa_interp.interp import tensor_grid_interp, generate_fit_multilevel
-from function_approximation.mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg, mlfa_interp_plot_cvg
-from function_approximation.mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
-from function_approximation.mlfa_interp.mlfa_interp_test import mlfa_interp_test
-from function_approximation.mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
-from function_approximation.mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
+from mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
+from mlfa_interp.interp import tensor_grid_interp, generate_fit_multilevel
+from mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_plot_cvg
+from mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
+from mlfa_interp.mlfa_interp_test import mlfa_interp_test
+from mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
+from mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
 from fractions import Fraction
 
 
@@ -46,8 +42,9 @@ if __name__ == "__main__" :
     # Convergence test
     #
 
-    L = 7
-    K = 6
+
+    L = 5
+    K = 3
 
     logfile = open(filename_cvg, "w")
     mlfa_interp_test_cvg(logfile=logfile,
@@ -59,7 +56,7 @@ if __name__ == "__main__" :
     logfile.close()
 
     cost_exp = Fraction(3/2)
-    mlfa_interp_plot_cvg(filename_cvg, gamma=2, nvert=3, save=True, cost_exp=cost_exp, filename_complexity=filename_complexity)
+    # mlfa_interp_plot_cvg(filename_cvg, gamma=2, nvert=3, save=True, cost_exp=cost_exp, filename_complexity=filename_complexity)
 
 
     #

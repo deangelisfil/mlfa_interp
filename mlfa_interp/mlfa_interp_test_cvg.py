@@ -1,8 +1,8 @@
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator, Mlfa_tensor_interp_generator, Mlfa_sparse_interp_generator
+from mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator, Mlfa_tensor_interp_generator, Mlfa_sparse_interp_generator
 import numpy as np
 from datetime import datetime
 from auxiliary_function.error import maxe
-from function_approximation.mlfa.mlfa_test_cvg import write
+from mlfa_interp.mlfa_interp_test import write
 import matlab.engine
 
 
@@ -19,7 +19,6 @@ def mlfa_interp_test_cvg(logfile,
     Prints results to stdout and file.
 
     If the user is interested in the estimation of alpha, beta and gamma only, use K = mlfa_interp_generator.kl[0]
-    todo: implement this. At the moment, it will throw an error.
 
     Inputs:
         L:  number of levels of the finite difference approximation for convergence tests
@@ -106,7 +105,6 @@ def mlfa_interp_test_cvg(logfile,
     Nl = np.zeros(L + 1)
     Nl_train = np.zeros(L + 1)
     for l in range(Lstart, L + 1) :
-        # todo: add kurtosis check and consistency check
         if isinstance(mlfa_interp_generator, Mlfa_tensor_interp_generator):
             grid_train, y_train, err_train, x, y, err, cst = mlfa_interp_generator(l=l)
             interp_yl[l] = interp(grid=grid_train, y=y_train, x_val=x, y_val=y)
@@ -174,7 +172,7 @@ def mlfa_interp_test_cvg(logfile,
     #
 
     assert len(interp_errn) > 1, "Need K - k_0 >= 1 to estimate delta"
-    K0 = 1 # todo: optimize this
+    K0 = 1
     pd = np.polyfit(np.log2(Nn_train[K0:]), np.log2(interp_errn[K0:]), 1); delta = -pd[0]
 
     #

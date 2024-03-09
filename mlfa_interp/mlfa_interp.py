@@ -1,8 +1,5 @@
 import numpy as np
-import torch
-from scipy.optimize import bisect
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator, Mlfa_tensor_interp_generator, Mlfa_sparse_interp_generator
-from function_approximation.mlfa.mlfa import WeakConvergenceFailure
+from mlfa_interp.mlfa_interp_generator import Mlfa_interp_generator, Mlfa_tensor_interp_generator, Mlfa_sparse_interp_generator
 from auxiliary_function.error import maxe
 from examples.parameters import lambda_
 from numpy import log
@@ -13,17 +10,17 @@ class FiniteDifferenceConvergenceFailure(Exception):
     pass
 
 
-def mlfa(eps: float,
-         Lmin: int,
-         Lmax: int,
-         mlfa_interp_generator: Mlfa_interp_generator,
-         interp: callable,
-         alpha_0: float = 0,
-         delta_0 = 0,
-         delta_log_0 = 0,
-         factor_N = 1,
-         eng: matlab.engine = None,
-         verbose: bool = False):
+def mlfa_interp(eps: float,
+                Lmin: int,
+                Lmax: int,
+                mlfa_interp_generator: Mlfa_interp_generator,
+                interp: callable,
+                alpha_0: float = 0,
+                delta_0 = 0,
+                delta_log_0 = 0,
+                factor_N = 1,
+                eng: matlab.engine = None,
+                verbose: bool = False):
     """
     Multilevel function estimation of f: X -> R.
 

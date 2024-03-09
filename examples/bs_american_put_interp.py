@@ -2,17 +2,16 @@ import sys
 from pathlib import Path
 path = Path.cwd().parent.parent.parent.absolute()
 sys.path.append(str(path))
-from examples.bs.initialize_bs import initialize_bs_american_put_interp
+from examples.initialize_bs import initialize_bs_american_put_interp
 import numpy as np
-from function_approximation.mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
-from function_approximation.mlfa_interp.interp import sparse_grid_interp, generate_fit_multilevel, tensor_grid_interp
-from function_approximation.mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_read_cvg, mlfa_interp_plot_cvg
-from function_approximation.mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
-from function_approximation.mlfa_interp.mlfa_interp_test import mlfa_interp_test
-from function_approximation.mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
-from function_approximation.mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
+from mlfa_interp.mlfa_interp_test_cvg import mlfa_interp_test_cvg
+from mlfa_interp.interp import sparse_grid_interp, generate_fit_multilevel
+from mlfa_interp.mlfa_interp_plot_cvg import mlfa_interp_plot_cvg
+from mlfa_interp.mlfa_interp_test_complexity import mlfa_interp_test_complexity
+from mlfa_interp.mlfa_interp_test import mlfa_interp_test
+from mlfa_interp.mlfa_interp_plot_complexity import mlfa_interp_plot_complexity
+from mlfa_interp.mlfa_interp_plot import mlfa_interp_plot
 from auxiliary_function.initialize_matlab_engine import initialize_matlab_engine
-from function_approximation.mlfa_interp.mlfa_interp import mlfa_interp
 from fractions import Fraction
 
 if __name__ == "__main__" :
@@ -42,7 +41,7 @@ if __name__ == "__main__" :
     eng.workspace['M_L'] = M_L
     eng.workspace['dim'] = dim
     eng.workspace['how'] = how
-    eng.eval("mlfa_interp_generator = py.examples.bs.initialize_bs.initialize_bs_american_put_interp(M_L, dim, how);",nargout=0)
+    eng.eval("mlfa_interp_generator = py.examples.initialize_bs.initialize_bs_american_put_interp(M_L, dim, how);",nargout=0)
     eng.workspace['target'] = "delta_f"
     eng.eval("f = wrapper(mlfa_interp_generator, target);", nargout=0)
     eng.eval("low_high_tuple = mlfa_interp_generator.data_generator.get_low_high_tuple(py.True);"

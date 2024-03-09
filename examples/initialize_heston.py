@@ -3,11 +3,8 @@ from data_generation.numerical_method.finite_difference.grid import Rustic_grid_
 from data_generation.numerical_method.finite_difference.heston_cn import Heston_cn
 from data_generation.model_parameter import Heston_parameter
 from data_generation.data_generator.heston_call_generator import Heston_call_generator
-from function_approximation.mlfa.mlfa_generator import Mlfa_generator
-from function_approximation.function_approximator.random_feature_approximator import Random_feature_approximator
-import torch
 from examples.parameters import *
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_sparse_interp_generator
+from mlfa_interp.mlfa_interp_generator import Mlfa_sparse_interp_generator
 
 
 def initialize_heston_call_generator(how: str):

@@ -1,7 +1,6 @@
 from data_generation.model_parameter import Bs_parameter
 from data_generation.numerical_method.finite_difference.payoff import Call, Put, Digital_call, Dirac, Digital_put
 from auxiliary_function.bs_european import bs_call, bs_put, bs_digital_call, bs_digital_put, bs_dirac
-import data_generation
 from data_generation.data_generator.data_generator_abstract import Data_generator_abstract
 
 

@@ -5,9 +5,6 @@ import numpy as np
 from data_generation.numerical_method.finite_difference.payoff import Payoff
 from data_generation.numerical_method.numerical_method_abstract import Numerical_method
 from data_generation.model_parameter import Bs_parameter
-import torch
-import copy
-
 
 class CflFailure(Exception):
     pass

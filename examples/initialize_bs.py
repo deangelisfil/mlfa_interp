@@ -2,13 +2,10 @@ from data_generation.numerical_method.finite_difference.payoff import Call, Put
 from data_generation.numerical_method.finite_difference.grid import Rustic_grid_2dim
 from data_generation.numerical_method.finite_difference.bs_theta import Bs_theta
 from data_generation.data_generator.bs_european_generator import Bs_european_generator
-from function_approximation.mlfa.mlfa_generator import Mlfa_generator
-from function_approximation.function_approximator.random_feature_approximator import Random_feature_approximator
-import torch
 from data_generation.model_parameter import Bs_parameter
 from examples.parameters import *
 from data_generation.data_generator.bs_american_put_generator import Bs_american_put_generator
-from function_approximation.mlfa_interp.mlfa_interp_generator import Mlfa_sparse_interp_generator, Mlfa_tensor_interp_generator
+from mlfa_interp.mlfa_interp_generator import Mlfa_sparse_interp_generator, Mlfa_tensor_interp_generator
 from data_generation.numerical_method.finite_difference.bs_american_put import Bs_american_put
 
 
