@@ -6,6 +6,6 @@ The key idea to improve the computational cost for a given accuracy is a multile
 
 As an application of the multilevel approach, we consider learning the function that maps the parameters of the model and of the financial product to the price of the financial product. 
 
-In the simple case of approximating the Black-Scholes call price function $(\sigma, r, C) \mapsto C(\sigma, r, K)$ using piecewise linear interpolation on tensor grids and second-order accurate finite difference methods, the computational cost to achieve accuracy $\bigO(\epsilon)$ is reduced from $\bigO(\epsilon^{-5/2})$ to $\bigO(\epsilon^{-3/2})$.
+In the simple case of approximating the Black-Scholes call price function $(\sigma, r, C) \mapsto C(\sigma, r, K)$ using piecewise linear interpolation on tensor grids and second-order accurate finite difference methods, the computational cost to achieve accuracy $O(\epsilon)$ is reduced from $O(\epsilon^{-5/2})$ to $O(\epsilon^{-3/2})$.
 
 For one-layer neural networks and second-order accurate finite difference methods, the computational cost to achieve accuracy $\mathcal{O}(\varepsilon)$ is reduced from $\mathcal{O}(\varepsilon^{-4 - d_X / 2})$ to  $\mathcal{O}(\varepsilon^{-4})$, where $d_X$ is the dimension of the underlying pricing PDE.
