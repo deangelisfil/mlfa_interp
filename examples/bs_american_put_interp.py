@@ -20,7 +20,7 @@ if __name__ == "__main__" :
     # Initialize Matlab engine
     #
 
-    eng = initialize_matlab_engine(2)
+    eng = initialize_matlab_engine(0)
     eng.warning('off', 'MATLAB:spinterp:insufficientDepth')
     eng.eval("options = spset("
              "'Vectorized','on', "
@@ -33,8 +33,8 @@ if __name__ == "__main__" :
     # initialize the mlfa_interp_generator and the function handle
     #
 
-    dim = 2
-    M_L = np.array([8, 16, 32, 64], dtype=int)
+    dim = 3
+    M_L = np.array([8, 16, 32, 64, 128], dtype=int)
     how = "tensor"
     mlfa_interp_generator = initialize_bs_american_put_interp(M_L=M_L, dim=dim, how=how)
 
@@ -53,8 +53,8 @@ if __name__ == "__main__" :
     #
 
     alpha = 2
-    delta = 2
-    # delta = 2 / dim
+    # delta = 2
+    delta = 2 / dim
     # delta_log = 3 * (dim - 1)
     delta_log = 0
     factor_N = 1

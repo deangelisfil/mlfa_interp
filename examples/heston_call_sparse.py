@@ -21,7 +21,7 @@ if __name__ == "__main__" :
     # Initialize Matlab engine
     #
 
-    eng = initialize_matlab_engine(2)
+    eng = initialize_matlab_engine(0)
     eng.warning('off', 'MATLAB:spinterp:insufficientDepth')
     eng.eval("options = spset("
              "'Vectorized','on', "
